@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Graphs
@@ -63,11 +64,47 @@ namespace Graphs
                 n++;
             }
 			Nodes.Add(new Node(name,p.X,p.Y));
-			CountMaxNodes++;
 		}
         public void DeleteNode(Node node)
         {
             Nodes.Remove(node);
         }
+        public string SaveGraph()
+        {
+            string save ="";
+            foreach(Node n in Nodes)
+            {
+                save += n.GetName();
+                save += " " + n.GetX() + " " + n.GetY();
+                foreach (Node x in n.GetLinks())
+                    save += " " + x.GetName();
+                save += " \r\n";
+            }
+            return save;
+        }
+        public void OpenGraph(string open)
+        {
+            Nodes.Clear();
+            using (StreamReader reader = new StreamReader(open))
+            {
+                int l = File.ReadAllLines(open).Length;
+                for (int i = 0; i < l; i++)
+                {
+                    Nodes.Add(new Node(reader.ReadLine().Split(' ')));
+                }
+            }
+                
+            
+
+
+        }
+        public void UsePatensialLinks()
+        {
+            foreach(Node n in Nodes)
+            {
+                n.UsePatensialLink(this);
+            }
+        }
+        
 	}
 }

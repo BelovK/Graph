@@ -26,6 +26,7 @@ namespace Graphs
 		Font MainFont;
 		SolidBrush MainBrush;
         Node TPositionNode;
+        
 
         public MainForm()
 		{
@@ -141,5 +142,34 @@ namespace Graphs
             }
             TPositionNode = null;
         }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+            string filename = saveFileDialog.FileName;
+            System.IO.File.WriteAllText(filename, MainGraph.SaveGraph());
+            MessageBox.Show("Файл сохранён");
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            // получаем выбранный файл
+            string filename = openFileDialog.FileName;
+            // читаем файл в строку
+            MainGraph.OpenGraph(filename);
+            MainGraph.UsePatensialLinks();
+            DrawNodes();
+            MessageBox.Show("Файл открыт");
+        }
+
     }
 }
