@@ -47,10 +47,14 @@ namespace Graphs
             this.radioButtonDelLine = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.textBoxLink1 = new System.Windows.Forms.TextBox();
+            this.textBoxLink2 = new System.Windows.Forms.TextBox();
+            this.buttonLink = new System.Windows.Forms.Button();
+            this.buttonLinkDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -141,19 +145,19 @@ namespace Graphs
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // сохранитьToolStripMenuItem
-            // 
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
-            // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -163,11 +167,49 @@ namespace Graphs
             // 
             this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
+            // textBoxLink1
+            // 
+            this.textBoxLink1.Location = new System.Drawing.Point(825, 258);
+            this.textBoxLink1.Name = "textBoxLink1";
+            this.textBoxLink1.Size = new System.Drawing.Size(39, 22);
+            this.textBoxLink1.TabIndex = 7;
+            // 
+            // textBoxLink2
+            // 
+            this.textBoxLink2.Location = new System.Drawing.Point(870, 258);
+            this.textBoxLink2.Name = "textBoxLink2";
+            this.textBoxLink2.Size = new System.Drawing.Size(39, 22);
+            this.textBoxLink2.TabIndex = 8;
+            // 
+            // buttonLink
+            // 
+            this.buttonLink.Location = new System.Drawing.Point(929, 248);
+            this.buttonLink.Name = "buttonLink";
+            this.buttonLink.Size = new System.Drawing.Size(84, 42);
+            this.buttonLink.TabIndex = 9;
+            this.buttonLink.Text = "Связать вершины";
+            this.buttonLink.UseVisualStyleBackColor = true;
+            this.buttonLink.Click += new System.EventHandler(this.buttonLink_Click);
+            // 
+            // buttonLinkDel
+            // 
+            this.buttonLinkDel.Location = new System.Drawing.Point(929, 296);
+            this.buttonLinkDel.Name = "buttonLinkDel";
+            this.buttonLinkDel.Size = new System.Drawing.Size(84, 42);
+            this.buttonLinkDel.TabIndex = 10;
+            this.buttonLinkDel.Text = "Убрать ребро";
+            this.buttonLinkDel.UseVisualStyleBackColor = true;
+            this.buttonLinkDel.Click += new System.EventHandler(this.buttonLinkDel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 510);
+            this.Controls.Add(this.buttonLinkDel);
+            this.Controls.Add(this.buttonLink);
+            this.Controls.Add(this.textBoxLink2);
+            this.Controls.Add(this.textBoxLink1);
             this.Controls.Add(this.radioButtonDelLine);
             this.Controls.Add(this.radioButtonDelNode);
             this.Controls.Add(this.radioButtonLink);
@@ -195,5 +237,9 @@ namespace Graphs
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.TextBox textBoxLink1;
+        private System.Windows.Forms.TextBox textBoxLink2;
+        private System.Windows.Forms.Button buttonLink;
+        private System.Windows.Forms.Button buttonLinkDel;
     }
 }

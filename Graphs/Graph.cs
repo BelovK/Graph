@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Graphs
 {
 	/// <summary>
-	/// Description of Graph.
+	/// Description of Graph.ааа
 	/// </summary>
 	public class Graph
 	{

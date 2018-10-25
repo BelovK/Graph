@@ -103,6 +103,15 @@ namespace Graphs
 	    	}
 	    	Links.Clear();
 	    }
+        public void DeleteLink(Node node)
+        {
+            Node DelNode = Links.Find(x => x.Name == node.Name);
+            if(DelNode != null)
+            {
+                Links.Remove(DelNode);
+                DelNode.Links.Remove(this);
+            }
+        }
 	    public List<Node> GetLinks(){
 	    	return Links;
 	    }

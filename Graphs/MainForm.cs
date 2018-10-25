@@ -171,5 +171,28 @@ namespace Graphs
             MessageBox.Show("Файл открыт");
         }
 
+        private void buttonLink_Click(object sender, EventArgs e)
+        {
+           Node LinkingNode1 = MainGraph.Nodes.Find(x => x.GetName() == textBoxLink1.Text);
+           Node LinkingNode2 = MainGraph.Nodes.Find(x => x.GetName() == textBoxLink2.Text);
+            if (LinkingNode1 != null && LinkingNode2 != null && LinkingNode1 != LinkingNode2)
+            {
+                LinkingNode1.AddNewLink(LinkingNode2);
+                DrawNodes();
+            }
+            else MessageBox.Show("Вершины не найдены");
+        }
+
+        private void buttonLinkDel_Click(object sender, EventArgs e)
+        {
+            Node LinkingNode1 = MainGraph.Nodes.Find(x => x.GetName() == textBoxLink1.Text);
+            Node LinkingNode2 = MainGraph.Nodes.Find(x => x.GetName() == textBoxLink2.Text);
+            if (LinkingNode1 != null && LinkingNode2 != null && LinkingNode1 != LinkingNode2)
+            {
+                LinkingNode1.DeleteLink(LinkingNode2);
+                DrawNodes();
+            }
+            else MessageBox.Show("Ребро не найдено");
+        }
     }
 }
