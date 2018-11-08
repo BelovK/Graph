@@ -55,6 +55,12 @@ namespace Graphs
             this.textBoxLink2 = new System.Windows.Forms.TextBox();
             this.buttonLink = new System.Windows.Forms.Button();
             this.buttonLinkDel = new System.Windows.Forms.Button();
+            this.buttonTravel = new System.Windows.Forms.Button();
+            this.labelLenTravel = new System.Windows.Forms.Label();
+            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.конструкторГрафовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -129,7 +135,8 @@ namespace Graphs
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
+            this.файлToolStripMenuItem,
+            this.видToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1076, 28);
@@ -201,11 +208,67 @@ namespace Graphs
             this.buttonLinkDel.UseVisualStyleBackColor = true;
             this.buttonLinkDel.Click += new System.EventHandler(this.buttonLinkDel_Click);
             // 
+            // buttonTravel
+            // 
+            this.buttonTravel.Location = new System.Drawing.Point(929, 365);
+            this.buttonTravel.Name = "buttonTravel";
+            this.buttonTravel.Size = new System.Drawing.Size(92, 30);
+            this.buttonTravel.TabIndex = 11;
+            this.buttonTravel.Text = "Обойти";
+            this.buttonTravel.UseVisualStyleBackColor = true;
+            this.buttonTravel.Click += new System.EventHandler(this.buttonTravel_Click);
+            // 
+            // labelLenTravel
+            // 
+            this.labelLenTravel.AutoSize = true;
+            this.labelLenTravel.Location = new System.Drawing.Point(814, 372);
+            this.labelLenTravel.Name = "labelLenTravel";
+            this.labelLenTravel.Size = new System.Drawing.Size(109, 17);
+            this.labelLenTravel.TabIndex = 12;
+            this.labelLenTravel.Text = "Длинна обхода";
+            this.labelLenTravel.Click += new System.EventHandler(this.labelLenTravel_Click);
+            // 
+            // видToolStripMenuItem
+            // 
+            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.конструкторГрафовToolStripMenuItem,
+            this.обходToolStripMenuItem});
+            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
+            this.видToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.видToolStripMenuItem.Text = "Вид";
+            // 
+            // конструкторГрафовToolStripMenuItem
+            // 
+            this.конструкторГрафовToolStripMenuItem.Name = "конструкторГрафовToolStripMenuItem";
+            this.конструкторГрафовToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.конструкторГрафовToolStripMenuItem.Text = "Конструктор графов";
+            this.конструкторГрафовToolStripMenuItem.Click += new System.EventHandler(this.конструкторГрафовToolStripMenuItem_Click);
+            // 
+            // обходToolStripMenuItem
+            // 
+            this.обходToolStripMenuItem.Name = "обходToolStripMenuItem";
+            this.обходToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.обходToolStripMenuItem.Text = "Обход";
+            this.обходToolStripMenuItem.Click += new System.EventHandler(this.обходToolStripMenuItem_Click);
+            // 
+            // buttonChange
+            // 
+            this.buttonChange.Location = new System.Drawing.Point(929, 401);
+            this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(92, 35);
+            this.buttonChange.TabIndex = 13;
+            this.buttonChange.Text = "Изменить";
+            this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1076, 510);
+            this.Controls.Add(this.buttonChange);
+            this.Controls.Add(this.labelLenTravel);
+            this.Controls.Add(this.buttonTravel);
             this.Controls.Add(this.buttonLinkDel);
             this.Controls.Add(this.buttonLink);
             this.Controls.Add(this.textBoxLink2);
@@ -241,5 +304,11 @@ namespace Graphs
         private System.Windows.Forms.TextBox textBoxLink2;
         private System.Windows.Forms.Button buttonLink;
         private System.Windows.Forms.Button buttonLinkDel;
+        private System.Windows.Forms.Button buttonTravel;
+        private System.Windows.Forms.Label labelLenTravel;
+        private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem конструкторГрафовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem обходToolStripMenuItem;
+        private System.Windows.Forms.Button buttonChange;
     }
 }

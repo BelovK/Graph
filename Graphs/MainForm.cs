@@ -26,6 +26,7 @@ namespace Graphs
 		Font MainFont;
 		SolidBrush MainBrush;
         Node TPositionNode;
+        TravelMan Travel;
         
 
         public MainForm()
@@ -39,6 +40,8 @@ namespace Graphs
 			MainPan = new Pen(Color.Black);
 			MainFont = new Font("Calibri",15f);
 			MainBrush = new SolidBrush(Color.Black);
+            Travel = new TravelMan();
+            обходToolStripMenuItem.PerformClick();
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
@@ -193,6 +196,65 @@ namespace Graphs
                 DrawNodes();
             }
             else MessageBox.Show("Ребро не найдено");
+        }
+
+        private void buttonTravel_Click(object sender, EventArgs e)
+        {
+            detour();
+        }
+        void detour(int StartNode = 0)
+        {
+            if (MainGraph.Nodes.Count > 3)
+            {
+                List<Node> tmp = new List<Node>(MainGraph.Nodes);
+                MainGraph.Nodes.Clear();
+                MainGraph.Nodes.AddRange(Travel.FindWay(tmp, StartNode));
+                labelLenTravel.Text = Travel.GetLength().ToString();
+                DrawNodes();
+            }
+        }
+        /// <summary>
+        /// Смена режима работы программы на конструктор
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void конструкторГрафовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buttonLink.Enabled = true;
+            buttonLinkDel.Enabled = true;
+            radioButtonDelLine.Enabled = true;
+            radioButtonLink.Enabled = true;
+            textBoxLink1.Enabled = true;
+            textBoxLink2.Enabled = true;
+            buttonTravel.Enabled = false;
+            buttonChange.Enabled = false;
+        }
+        /// <summary>
+        /// Смена режима работы программы на метод обхода
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void обходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            buttonLink.Enabled = false;
+            buttonLinkDel.Enabled = false;
+            radioButtonDelLine.Enabled = false;
+            radioButtonLink.Enabled = false;
+            textBoxLink1.Enabled = false;
+            textBoxLink2.Enabled = false;
+            buttonTravel.Enabled = true;
+            buttonChange.Enabled = true;
+        }
+
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            detour(r.Next(1, MainGraph.Nodes.Count - 1));
+        }
+
+        private void labelLenTravel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
